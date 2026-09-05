@@ -5,8 +5,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Punkte Counter</title>
-
     <style>
+        * {
+            box-sizing: border-box;
+        }
         body {
             margin: 0;
             min-height: 100vh;
@@ -16,192 +18,240 @@
             background: #0b1020;
             color: white;
             font-family: Arial, sans-serif;
+            padding: 20px;
         }
-
         .container {
-            width: 90%;
-            max-width: 900px;
+            width: 100%;
+            max-width: 1200px;
             text-align: center;
         }
-
         h1 {
             color: #f1c40f;
             font-size: 40px;
             margin-bottom: 40px;
         }
-
         .teams {
             display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 30px;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
         }
-
         .team {
             background: #16213e;
-            padding: 30px;
+            padding: 25px;
             border-radius: 20px;
         }
-
         .team1 {
             border: 3px solid #2ed573;
         }
-
         .team2 {
             border: 3px solid #1e90ff;
         }
-
-        .team h2 {
-            margin-top: 0;
-            font-size: 26px;
+        .team3 {
+            border: 3px solid #ff4757;
         }
-
+        .team h2 {
+            margin: 0;
+            font-size: 25px;
+        }
         .score {
-            font-size: 70px;
+            font-size: 65px;
             font-weight: bold;
             color: #f1c40f;
-            margin: 20px 0;
+            margin: 20px 0 25px;
         }
-
         .buttons {
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 10px;
         }
-
         button {
-            padding: 14px;
+            padding: 13px 8px;
             border: none;
             border-radius: 10px;
-            font-size: 18px;
+            font-size: 17px;
             font-weight: bold;
             cursor: pointer;
+            transition: 0.15s;
         }
-
+        button:hover {
+            opacity: 0.85;
+            transform: scale(1.02);
+        }
+        button:active {
+            transform: scale(0.97);
+        }
         .plus {
             background: #2ed573;
             color: white;
         }
-
         .minus {
             background: #ff4757;
             color: white;
         }
-
         .reset {
             margin-top: 30px;
+            width: 250px;
             background: #747d8c;
             color: white;
-            width: 250px;
+            font-size: 18px;
         }
-
-        button:hover {
-            opacity: 0.8;
-            transform: scale(1.02);
-        }
-
-        @media (max-width: 600px) {
+        @media (max-width: 800px) {
             .teams {
                 grid-template-columns: 1fr;
+            }
+            h1 {
+                font-size: 32px;
             }
         }
     </style>
 </head>
-
 <body>
-
 <div class="container">
-
     <h1>🏆 Punkte</h1>
-
     <div class="teams">
-
         <!-- TEAM 1 -->
         <div class="team team1">
             <h2>🟢 Team 1</h2>
-
             <div class="score" id="score1">0</div>
-
             <div class="buttons">
-                <button class="plus" onclick="changeScore(1, 100)">+100</button>
-                <button class="minus" onclick="changeScore(1, -100)">−100</button>
-
-                <button class="plus" onclick="changeScore(1, 200)">+200</button>
-                <button class="minus" onclick="changeScore(1, -200)">−200</button>
-
-                <button class="plus" onclick="changeScore(1, 300)">+300</button>
-                <button class="minus" onclick="changeScore(1, -300)">−300</button>
-
-                <button class="plus" onclick="changeScore(1, 400)">+400</button>
-                <button class="minus" onclick="changeScore(1, -400)">−400</button>
-
-                <button class="plus" onclick="changeScore(1, 500)">+500</button>
-                <button class="minus" onclick="changeScore(1, -500)">−500</button>
+                <button class="plus" onclick="changeScore(1, 100)">
+                    +100
+                </button>
+                <button class="minus" onclick="changeScore(1, -100)">
+                    −100
+                </button>
+                <button class="plus" onclick="changeScore(1, 200)">
+                    +200
+                </button>
+                <button class="minus" onclick="changeScore(1, -200)">
+                    −200
+                </button>
+                <button class="plus" onclick="changeScore(1, 300)">
+                    +300
+                </button>
+                <button class="minus" onclick="changeScore(1, -300)">
+                    −300
+                </button>
+                <button class="plus" onclick="changeScore(1, 400)">
+                    +400
+                </button>
+                <button class="minus" onclick="changeScore(1, -400)">
+                    −400
+                </button>
+                <button class="plus" onclick="changeScore(1, 500)">
+                    +500
+                </button>
+                <button class="minus" onclick="changeScore(1, -500)">
+                    −500
+                </button>
             </div>
         </div>
-
-
         <!-- TEAM 2 -->
         <div class="team team2">
             <h2>🔵 Team 2</h2>
-
             <div class="score" id="score2">0</div>
-
             <div class="buttons">
-                <button class="plus" onclick="changeScore(2, 100)">+100</button>
-                <button class="minus" onclick="changeScore(2, -100)">−100</button>
-
-                <button class="plus" onclick="changeScore(2, 200)">+200</button>
-                <button class="minus" onclick="changeScore(2, -200)">−200</button>
-
-                <button class="plus" onclick="changeScore(2, 300)">+300</button>
-                <button class="minus" onclick="changeScore(2, -300)">−300</button>
-
-                <button class="plus" onclick="changeScore(2, 400)">+400</button>
-                <button class="minus" onclick="changeScore(2, -400)">−400</button>
-
-                <button class="plus" onclick="changeScore(2, 500)">+500</button>
-                <button class="minus" onclick="changeScore(2, -500)">−500</button>
+                <button class="plus" onclick="changeScore(2, 100)">
+                    +100
+                </button>
+                <button class="minus" onclick="changeScore(2, -100)">
+                    −100
+                </button>
+                <button class="plus" onclick="changeScore(2, 200)">
+                    +200
+                </button>
+                <button class="minus" onclick="changeScore(2, -200)">
+                    −200
+                </button>
+                <button class="plus" onclick="changeScore(2, 300)">
+                    +300
+                </button>
+                <button class="minus" onclick="changeScore(2, -300)">
+                    −300
+                </button>
+                <button class="plus" onclick="changeScore(2, 400)">
+                    +400
+                </button>
+                <button class="minus" onclick="changeScore(2, -400)">
+                    −400
+                </button>
+                <button class="plus" onclick="changeScore(2, 500)">
+                    +500
+                </button>
+                <button class="minus" onclick="changeScore(2, -500)">
+                    −500
+                </button>
             </div>
         </div>
-
+        <!-- TEAM 3 -->
+        <div class="team team3">
+            <h2>🔴 Team 3</h2>
+            <div class="score" id="score3">0</div>
+            <div class="buttons">
+                <button class="plus" onclick="changeScore(3, 100)">
+                    +100
+                </button>
+                <button class="minus" onclick="changeScore(3, -100)">
+                    −100
+                </button>
+                <button class="plus" onclick="changeScore(3, 200)">
+                    +200
+                </button>
+                <button class="minus" onclick="changeScore(3, -200)">
+                    −200
+                </button>
+                <button class="plus" onclick="changeScore(3, 300)">
+                    +300
+                </button>
+                <button class="minus" onclick="changeScore(3, -300)">
+                    −300
+                </button>
+                <button class="plus" onclick="changeScore(3, 400)">
+                    +400
+                </button>
+                <button class="minus" onclick="changeScore(3, -400)">
+                    −400
+                </button>
+                <button class="plus" onclick="changeScore(3, 500)">
+                    +500
+                </button>
+                <button class="minus" onclick="changeScore(3, -500)">
+                    −500
+                </button>
+            </div>
+        </div>
     </div>
-
     <button class="reset" onclick="resetScores()">
         🔄 Alles zurücksetzen
     </button>
-
 </div>
-
-
 <script>
-
     let score1 = 0;
     let score2 = 0;
-
+    let score3 = 0;
     function changeScore(team, points) {
-
         if (team === 1) {
             score1 += points;
             document.getElementById("score1").innerText = score1;
         }
-
         if (team === 2) {
             score2 += points;
             document.getElementById("score2").innerText = score2;
         }
+        if (team === 3) {
+            score3 += points;
+            document.getElementById("score3").innerText = score3;
+        }
     }
-
     function resetScores() {
-
         score1 = 0;
         score2 = 0;
-
-        document.getElementById("score1").innerText = 0;
-        document.getElementById("score2").innerText = 0;
+        score3 = 0;
+        document.getElementById("score1").innerText = "0";
+        document.getElementById("score2").innerText = "0";
+        document.getElementById("score3").innerText = "0";
     }
-
 </script>
-
 </body>
 </html>
 
